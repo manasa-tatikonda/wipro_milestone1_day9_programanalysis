@@ -1,0 +1,10 @@
+int num=Math.abs(input1)
+int rev=0,rem=0;
+while(num!=0)
+{
+       rem=num%10;
+       rev=(rev*10)+rem;
+      num/=10;
+}
+
+Link to pratice : https://tests.mettl.com/test-window/28c41d9d

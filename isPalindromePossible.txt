@@ -1,0 +1,18 @@
+        int num=Math.abs(input1);
+		int [] digits=new int [10];
+		while(num!=0)
+		{
+			digits[num%10]++;
+			num/=10;
+		}
+		int oddcount=0;
+		for(int n:digits)
+		{
+            if(n%2!=0){oddcount+=1;}
+		}
+		if(oddcount<=1){return 2;}
+		else{return 1;}
+
+
+
+Link to pratice : https://tests.mettl.com/test-window/f4fdb02

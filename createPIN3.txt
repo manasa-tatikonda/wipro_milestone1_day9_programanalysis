@@ -1,0 +1,56 @@
+        input1=Math.abs(input1);input2=Math.abs(input2);input3=Math.abs(input3);
+		int unit1=input1%10,ten1=(input1/10)%10,hun1=(input1/10)/10;
+		int unit2=input2%10,ten2=(input2/10)%10,hun2=(input2/10)/10;
+		int unit3=input3%10,ten3=(input3/10)%10,hun3=(input3/10)/10;
+		                   //unit is ones digit ,ten is tens digit ,hun is hundreds digit
+		int unit_digit=(unit1<unit2)&&(unit1<unit3)?unit1:(unit2<unit3)?unit2:unit3;
+		                  //to get minimum unit digit value;
+		int unit_max=(unit1>unit2)&&(unit1>unit3)?unit1:(unit2>unit3)?unit2:unit3;
+                        //to get maxinum unit digit value;
+	   int tens_digit=(ten1<ten2)&&(ten1<ten3)?ten1:(ten2<ten3)?ten2:ten3;
+		                        //to get minimum tens digit value;
+		int tens_max=(ten1>ten2)&&(ten1>ten3)?ten1:(ten2>ten3)?ten2:ten3;
+                              //to get maximum tens digit value;
+	    int huns_digit=(hun1<hun2)&&(hun1<hun3)?hun1:(hun2<hun3)?hun2:hun3;
+		                  //to get minimum hundreds digit value;
+		int huns_max=(hun1>hun2)&&(hun1>hun3)?hun1:(hun2>hun3)?hun2:hun3;
+		                   //to get maximum hundreds digit value;
+		int max_value=(unit_max>tens_max)&&(unit_max>huns_max)?unit_max:(tens_max>huns_max)?tens_max:huns_max;
+		int PIN=(max_value*1000)+(huns_digit*100)+(tens_digit*10)+(unit_digit);
+		return PIN;		
+
+
+             (or)
+
+	    int [] units={input1%10,input2%10,input3%10};
+		int [] tens={(input1/10)%10,(input2/10)%10,(input3/10)%10};
+		int [] hun={(input1/10)/10,(input2/10)/10,(input3/10)/10};
+		int max1=units[0],min1=units[0];
+		for(int i=1;i<=units.length-1;i++)
+		{
+			if(max1<units[i]){max1=units[i];}
+			if(min1>units[i]){min1=units[i];}
+		}
+		int max2=tens[0],min2=tens[0];
+		for(int i=1;i<=tens.length-1;i++)
+		{
+			if(max2<tens[i]){max2=tens[i];}
+			if(min2>tens[i]){min2=tens[i];}
+		}
+		int max3=hun[0],min3=hun[0];
+		for(int i=1;i<=hun.length-1;i++)
+		{
+			if(max3<hun[i]){max3=hun[i];}
+			if(min3>hun[i]){min3=hun[i];}
+		}
+		int maxval=0;
+		if(max1>max2 && max1>max3){maxval=max1;}
+		else if(max2>max3){maxval=max2;}
+		else{maxval=max3;}
+		String output=maxval+""+min3+""+min2+""+min1;
+		return Integer.parseInt(output);
+
+
+
+
+Link to pratice : https://tests.mettl.com/test-window/be582d9f
